@@ -1,10 +1,10 @@
 class Solution {
     public boolean isValid(String s) {
         Stack<Character> st=new Stack<>();
-            
-        for(char str : s.toCharArray()){
-         if(str =='(' || str =='{' || str =='[')
-         st.push(str);  
+        char[] ch1= s.toCharArray();
+        for( int i=0;i<ch1.length;i++){
+         if(ch1[i] =='(' || ch1[i] =='{' || ch1[i] =='[')
+         st.push(ch1[i]);  
 
         else {
             if(st.isEmpty())
@@ -12,7 +12,7 @@ class Solution {
 
         char ch=st.pop();
 
-        if((str==')' && ch == '(') || (str== '}' && ch =='{') || (str==']' && ch=='[' ))
+        if((ch1[i] ==')' && ch == '(') || (ch1[i] == '}' && ch =='{') || (ch1[i] ==']' && ch=='[' ))
              continue;
          else
              return false;
