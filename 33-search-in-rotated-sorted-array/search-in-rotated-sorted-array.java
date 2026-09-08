@@ -23,8 +23,7 @@ class Solution {
             }
 
 //check for right sorted
-             if(nums[mid]<=nums[high])
-            {
+            else{
                 if(nums[mid]<= target && target <= nums[high])  // 2<=3 run 
                 {
                     low=mid+1;
