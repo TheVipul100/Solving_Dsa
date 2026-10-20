@@ -1,15 +1,14 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-        if (s.length() != t.length()) 
+         if (s.length() != t.length())
         return false;
-        int n = s.length();
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                boolean sameInS = s.charAt(i) == s.charAt(j);
-                boolean sameInT = t.charAt(i) == t.charAt(j);
-                if (sameInS != sameInT) 
-                return false;  
-            }
+        int[] lastS = new int[256];   // 0 means "not seen yet", positions are stored as i + 1
+        int[] lastT = new int[256];
+        for (int i = 0; i < s.length(); i++) {
+            char a = s.charAt(i), b = t.charAt(i);
+            if (lastS[a] != lastT[b]) return false;
+            lastS[a] = i + 1;
+            lastT[b] = i + 1;
         }
         return true;
     }
