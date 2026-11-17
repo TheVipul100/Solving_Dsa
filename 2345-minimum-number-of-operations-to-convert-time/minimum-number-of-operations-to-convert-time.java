@@ -14,7 +14,7 @@ class Solution {
         for(int i:arr)
         {
             result += diff/i;
-            diff = diff%i;
+            diff %=i;
         }
         return result;
 
