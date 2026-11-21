@@ -11,7 +11,7 @@ class Solution {
             if(nums[mid] == target) 
             return mid;
 
- // check for left sprted
+ // check for left sprted   //[7,8,9,1,2,3,4,5,6] target =3  
             if(nums[low]<=nums[mid])
             {
                 if(nums[low]<=target && target <=nums[mid])  // 4<=3 
