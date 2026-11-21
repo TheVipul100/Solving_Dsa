@@ -11,9 +11,9 @@ class Solution {
 
             if(nums[low] == nums[mid] && nums[mid] == nums[high])
             {
-                low = low+1;
-                high = high-1;
-                continue;
+                low ++;
+                high --;
+                continue;  // skip further process
             }
 
  // check for left sprted
