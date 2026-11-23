@@ -1,33 +1,17 @@
 class Solution {
     public int singleNonDuplicate(int[] nums) {
-        int n=nums.length;
-        
-        if(n==1) return nums[0];
-        if(nums[0]!=nums[1]) return nums[0];
-        if(nums[n-1]!=nums[n-2])
-        return nums[n-1];        
+          int n=nums.length;
 
-        int low=1,high=n-2;
-        while(low<=high)
+        if(n==1)
+        return nums[0];
+   
+        for(int i=0;i<n-1;i+=2)
         {
-            int mid=(low+high)/2;
-
-            if(nums[mid]!=nums[mid+1] && nums[mid]!=nums[mid-1])
-            return nums[mid];
-
-                //left half elimination   with indices (even,odd)   even= mid-1 & odd=mid+1
-            if((mid % 2 == 0 && nums[mid] == nums[mid+1]) || (mid % 2 == 1 && nums[mid] == nums[mid-1]))
-                 low = mid+1;
-                else
-                high = mid-1;
+            if(nums[i] != nums[i+1])
+            {
+               return nums[i];
+            }
         }
-        return -1;
-        
-        // int ans = 0;
-
-        // for (int i = 0; i < n; i++) {
-        //     ans = ans ^ nums[i];
-        // }
-        // return ans;
+        return nums[n-1];
     }
 }
