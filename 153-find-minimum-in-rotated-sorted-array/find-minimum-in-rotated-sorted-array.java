@@ -1,33 +1,25 @@
 class Solution {
-    public int findMin(int[] nums) {
-        int n=nums.length;
-        int low=0,high=n-1;
-        int min=5000;
-        while(low<=high)
-        { 
-            int mid=(low+high)/2;
-                //when the search space is sorted in case[4,5,6,0,1,2] so 0 to 2 the array is sorted directly then take low as your minimum in that case 
+    public int findMin(int[] arr) {
+        int n=arr.length;
 
-                if(nums[low] <= nums[high])
-                {
-                    min=Math.min(min,nums[low]);
-                    break; // no need to perform further binary search on [0,1,2] directly 0 is the ans;
-                }
+        int left= 0,right=n-1;
+        int min=Integer.MAX_VALUE;
+        while(left<=right)
+        {
+            int mid= (left+right)/2;
 
-
-            // left sprted
-            if(nums[low]<=nums[mid])
+            if(arr[left]<=arr[mid])
             {
-                min=Math.min(min,nums[low]);  
-                low=mid+1;
+               min=Math.min(min,arr[left]);
+               left = mid+1;
             }
- //right sorted
             else
             {
-                min=Math.min(min,nums[mid]); 
-                high=mid-1;
+               min=Math.min(min,arr[mid]);
+               right = mid-1;
             }
         }
-        return min;
+
+         return min;
     }
 }
