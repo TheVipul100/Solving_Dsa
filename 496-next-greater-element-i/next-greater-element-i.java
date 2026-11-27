@@ -11,7 +11,7 @@ class Solution {
                 if (nums2[j] == target) {
                     found = true;
                 } 
-                else if (found) {
+                else if (found) {      // when the condition is true tabhi jaega as found jab dono equal honge to value true hojaegi 
                     if (nums2[j] > target) {
                         ng = nums2[j];
                         break;
