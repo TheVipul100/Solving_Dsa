@@ -1,36 +1,37 @@
 class MyStack {
 
-      Queue<Integer> q;
-      int size;
+     Queue <Integer> list;
+    int currSize ;
     public MyStack() {
-        q=new LinkedList<>();  // arrayList - dequeuing the first ele needs shifting all the elements that requires O(n) operations.... and in singly LL directly delete the top node and pop needs O(1) operations 
+        list = new LinkedList<>();
+        currSize=0;
     }
-    
+
     public void push(int x) {
-        size=q.size();
 
-        q.add(x);
-
-        for(int i=0;i<size;i++)
+    int oldSize = list.size();
+    list.add(x);
+    currSize++;
+       for(int i=0;i<oldSize;i++)
         {
-            q.add(q.poll());
+            list.add(list.peek());
+            list.remove();
         }
     }
-    
-    public int pop() {
-        int value=q.peek();  // return the value
 
-          q.poll(); // removes the top and returns
-         size--;
-        return value;
+    public int pop() {
+        int val=list.peek();
+        list.remove();
+       currSize--;
+      return val;
     }
-    
+
     public int top() {
-        return q.peek();
+      return list.peek(); 
     }
-    
+
     public boolean empty() {
-        return q.isEmpty();
+        return currSize == 0;
     }
 }
 
