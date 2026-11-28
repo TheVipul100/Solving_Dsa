@@ -3,7 +3,7 @@ class MyStack {
       Queue<Integer> q;
       int size;
     public MyStack() {
-        q=new LinkedList<>();
+        q=new LinkedList<>();  // arrayList - dequeuing the first ele needs shifting all the elements that requires O(n) operations.... and in singly LL directly delete the top node and pop needs O(1) operations 
     }
     
     public void push(int x) {
